@@ -25,7 +25,9 @@ EOS
   s.subspec "Core+Logging" do |sp|
     sp.framework    = 'CoreData'
     sp.header_dir   = 'MagicalRecord'
-    sp.public_header_files = 'MagicalRecord/**/*.h'
+    sp.xcconfig = {
+      'HEADER_SEARCH_PATHS' => "\"${PODS_ROOT}/Headers/Public/MagicalRecord/MagicalRecord\""
+    }
     sp.source_files = 'Library/**/*.{h,m}'
     sp.prefix_header_contents = <<-EOS
 #import <CoreData/CoreData.h>
